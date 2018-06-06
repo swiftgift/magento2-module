@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Cache/etc/cache.xsd">
+    <type name="swiftgift_access_token" translate="label,description" instance="Swiftgift\Gift\Model\Cache\Type">
+        <label>Swift gift access tokens cache</label>
+        <description>Swift gift access tokens cache.</description>
+    </type>
+</config>

@@ -1,0 +1,23 @@
+<?php if ($this->getShow()) {?>
+    <div id="swift-gift" data-mage-init='{"Swiftgift_Gift/js/order-success-gift":{}}'>
+    <?php if ($this->getSuccess()) { ?>
+        <div class="swiftgift-checkout-magiclink">
+        <h3>Magic link generated</h3>
+        <p>
+        We’ve accepted your order, and we're getting it ready. Send the link to your recipient so they can provide a shipping address.
+        </p>
+        <input type="text" name="" value="">
+        <input class="swiftgift-checkout-magiclink-input" id="sg-gift-magic-link-input" type="text" value="<?php echo $this->getMagicLinkUrl();?>">
+
+        <button class="clipboard-btn button swiftgift-checkout-magiclink-button" type="button" id="swiftgift-link-copy-btn" data-clipboard-text="<?php echo $this->getMagicLinkUrl();?>">
+            <svg class="swiftgift-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path class="swiftgift-icon-path" fill="#FFF" d="M13 3.08v10.248a1 1 0 1 1-2 0V3.08L9.291 4.448a1 1 0 1 1-1.249-1.562L11.36.232A.994.994 0 0 1 12.042 0a1 1 0 0 1 .598.23l3.318 2.655a1 1 0 0 1-1.25 1.562L13 3.08zM19 21V10h-1a1 1 0 0 1 0-2h1.5A1.5 1.5 0 0 1 21 9.5v12a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 21.5v-12A1.5 1.5 0 0 1 4.5 8H6a1 1 0 1 1 0 2H5v11h14z"/>
+            </svg>
+            <span>Copy to clipboard</span>
+        </button>
+        </div>
+        <?php } else { ?>
+            Error while generating SwiftGift for this order!
+        <?php } ?>
+    </div>
+<?php } ?>

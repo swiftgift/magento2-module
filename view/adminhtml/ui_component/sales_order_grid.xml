@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <column name="swift_gift_info" class="Swiftgift\Gift\Adminhtml\OrderGrid\SwiftGiftInfo">
+            <settings>
+                <filter>text</filter>
+                <dataType>text</dataType>
+                <label>SwiftGift used</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+    </columns>
+</listing>

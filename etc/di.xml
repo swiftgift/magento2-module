@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config>
+    <preference for="\Swiftgift\Gift\Api\CheckoutInterface" type="Swiftgift\Gift\Model\Api\Checkout" />
+    <preference for="\Swiftgift\Gift\Api\Data\SwiftGiftInfoInterface" type="Swiftgift\Gift\Model\Api\Data\SwiftGiftInfo" />
+    <preference for="\Swiftgift\Gift\Api\Data\ResultInterface" type="Swiftgift\Gift\Model\Api\Data\Result" />
+
+    <preference for="\Swiftgift\Gift\Api\StatusChangeInterface" type="Swiftgift\Gift\Model\Api\StatusChange" />
+    <preference for="\Swiftgift\Gift\Api\Data\DeliveryAddressInterface" type="Swiftgift\Gift\Model\Api\Data\DeliveryAddress" />
+    <preference for="\Swiftgift\Gift\Api\Data\ExtResultInterface" type="Swiftgift\Gift\Model\Api\Data\ExtResult" />
+    
+    <type name="\Magento\Checkout\Api\GuestShippingInformationManagementInterface">
+        <plugin name="swiftgift_checkout_quote" type="\Swiftgift\Gift\Plugin\CheckoutQuotePlugin" sortOrder="1" />
+    </type>
+    <type name="\Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="swiftgift_checkout_order" type="\Swiftgift\Gift\Plugin\CheckoutOrderPluginGuest" sortOrder="1" />
+    </type>
+    <type name="\Magento\Checkout\Api\PaymentInformationManagementInterface">
+        <plugin name="swiftgift_checkout_order" type="\Swiftgift\Gift\Plugin\CheckoutOrderPluginCustomer" sortOrder="1" />
+    </type>    
+    <type name="\Magento\Quote\Model\QuoteValidator">
+        <plugin name="swiftgift_quote_validator" type="\Swiftgift\Gift\Plugin\QuoteValidatorPlugin" sortOrder="1" />
+    </type>
+    <type name="\Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="swiftgift_layout_processor" type="\Swiftgift\Gift\Plugin\CheckoutBlockLayoutProcessorPlugin" sortOrder="1" />
+    </type>
+</config>

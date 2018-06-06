@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <type name="\Magento\Sales\Model\Order">
+        <plugin name="swiftgift_order_shipping_address" type="\Swiftgift\Gift\Plugin\OrderShippingAddressPlugin" sortOrder="1" />
+    </type>
+    <type name="\Magento\Sales\Block\Order\Info">
+        <plugin name="swiftgift_order_block_info" type="\Swiftgift\Gift\Plugin\OrderBlockInfoPlugin" sortOrder="1" />
+    </type>
+</config>
