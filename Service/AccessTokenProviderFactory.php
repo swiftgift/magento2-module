@@ -8,9 +8,11 @@ class AccessTokenProviderFactory {
 
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $object_manager,
+        \Swiftgift\Gift\Utils $utils,        
         \Magento\Framework\App\Config\ScopeConfigInterface $config
     ) {
         $this->object_manager = $object_manager;
+        $this->utils = $utils;
         $this->config = $config;
     }
 
@@ -18,10 +20,12 @@ class AccessTokenProviderFactory {
         return $this->object_manager->create(
             '\Swiftgift\Gift\Service\AccessTokenProvider',
             [
-                'url'=>$this->config->getValue('swiftgift/auth/login_url'),
+                'url'=>$this->utils->joinWithTrim([
+                    $this->config->getValue('swiftgift/main/api_base_url'),
+                    '/v1/auth'
+                ]),
                 'credentials'=>[
-                    'email'=>$this->config->getValue('swiftgift/auth/email'),
-                    'password'=>$this->config->getValue('swiftgift/auth/password')
+                    'client_secret'=>$this->config->getValue('swiftgift/main/client_secret')
                 ],
             ]
         );

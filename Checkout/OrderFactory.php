@@ -6,22 +6,30 @@ class OrderFactory {
     protected $objectManager;
     protected $storeManager;
     protected $config;
+    protected $deploymentConfig;
     
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\App\Config\ScopeConfigInterface $config
+        \Magento\Framework\App\Config\ScopeConfigInterface $config,
+        \Magento\Framework\App\DeploymentConfig $deploymentConfig
 
     ) {
         $this->objectManager = $objectManager;
         $this->storeManager = $storeManager;
         $this->config = $config;
+        $this->deploymentConfig = $deploymentConfig;        
     }
 
     public function create() {
+        $base_url = $this->storeManager->getStore()->getBaseUrl();
+        $id_key_prefix = $this->deploymentConfig->get('swiftgift/id_key_prefix');
+        if (!$id_key_prefix) {
+            $id_key_prefix = md5($base_url);
+        }
         return $this->objectManager->create(\Swiftgift\Gift\Checkout\Order::class, [
-            'base_url'=>$this->storeManager->getStore()->getBaseUrl(),
-            'key_prefix'=>$this->config->getValue('swiftgift/main/idempotency_key_prefix')
+            'base_url'=>$base_url,
+            'key_prefix'=>$id_key_prefix
         ]);
     }
 

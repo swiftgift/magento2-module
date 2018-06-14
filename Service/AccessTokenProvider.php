@@ -37,7 +37,7 @@ class AccessTokenProvider {
             $this->url,
             $this->credentials
         );
-        $this->cache->save($r['auth']['access_token'], $this->cache_access_token_id, array($this->cache_access_token_tag));
+        $this->cache->save($r['access_token'], $this->cache_access_token_id, array($this->cache_access_token_tag));
     }
     
 }

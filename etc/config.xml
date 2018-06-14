@@ -3,16 +3,9 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <swiftgift>
-            <auth>
-                <login_url>https://api-staging.swiftgift.me/v1/users/login</login_url>
-                <email>testusertwo@email.com</email>
-                <password>testusertwo@email.com</password>
-                <secret_key>thisistestsecretkey</secret_key>
-            </auth>
             <main>
-                <gift_url>https://api-staging.swiftgift.me/v1/gifts</gift_url>
+                <api_base_url>https://api.swiftgift.me/</api_base_url>
                 <magic_link_base_url>https://magento.swiftgift.me</magic_link_base_url>
-                <idempotency_key_prefix>idkey_</idempotency_key_prefix>
             </main>
         </swiftgift>
     </default>

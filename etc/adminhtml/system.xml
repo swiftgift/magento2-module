@@ -8,31 +8,16 @@
             <label>Swift gift configuration</label>
             <tab>swiftgift_settings_tab</tab>
             <resource>Swiftgift_Gift::config</resource>
-            <group id="auth" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Auth</label>
-                <field id="login_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Login url</label>
-                </field>
-                <field id="email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Email</label>
-                </field>
-                <field id="password" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Password</label>
-                </field>
-                <field id="secret_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Secret key</label>
-                </field>
-            </group>
             <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Main</label>
-                <field id="magic_link_base_url" type="text" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="api_base_url" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Api base url</label>
+                </field>
+                <field id="magic_link_base_url" type="text" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Magic link base url</label>
                 </field>
-                <field id="gift_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Gift resource url</label>
-                </field>
-                <field id="idempotency_key_prefix" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Idempotency key prefix</label>
+                <field id="client_secret" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client secret key</label>
                 </field>
             </group>
         </section>
