@@ -12,6 +12,9 @@ var config = {
             },
             'Magento_Checkout/js/view/shipping-information': {
                 'Swiftgift_Gift/js/mixins/shipping-information-visible': true
+            },
+            'Magento_Checkout/js/model/quote': {
+                'Swiftgift_Gift/js/mixins/quote-swiftgift': true
             }
         }
     }

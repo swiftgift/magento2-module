@@ -57,6 +57,7 @@ define([
             swift_gift_active = swift_gift_active || this.source.get('shippingAddress.swift_gift_active') === true;
             
             this.swiftGiftActive(swift_gift_active);
+            quote.swiftGiftUsed(swift_gift_active);
             return this;
         },
         _refreshBySwiftGift: function(val) {
@@ -126,6 +127,7 @@ define([
                                 checkoutData.setNewCustomerBillingAddress(null);
                                 PaymentService.setPaymentMethods(methodConverter(result['payment_methods']));
                                 quote.setTotals(result['totals']);
+                                quote.swiftGiftUsed(true);
                                 stepNavigator.next();
                             } else {
                                 alert(result);
@@ -135,6 +137,7 @@ define([
                 }
             } else {
                 quote.shippingAddress().canUseForBilling(true);
+                quote.swiftGiftUsed(false);
                 this._super();
             }
         }

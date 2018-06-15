@@ -1,7 +1,7 @@
 define([
     'ko',
     'Magento_Checkout/js/model/quote',
-    'Magento_Checkout/js/checkout-data'    
+    'Magento_Checkout/js/checkout-data'
 ], function(
     ko,
     quote,
@@ -12,6 +12,10 @@ define([
         return function() {
             return func.call(ctx, origin_func, arguments);
         };
+    };
+
+    function getCanUseShippingAddr(quote) {
+        return !quote.isVirtual() && quote.shippingAddress() && quote.shippingAddress().canUseForBilling();
     };
     
     var mixin = {
@@ -25,11 +29,13 @@ define([
                     return origin_func();
                 }
             });
+            quote.swiftGiftUsed.subscribe(function(val) {
+                obj.canUseShippingAddress(!val && getCanUseShippingAddr(quote));
+            });
+            obj.canUseShippingAddress(!quote.swiftGiftUsed() && getCanUseShippingAddr(quote));
             return this;
         },
-        canUseShippingAddress: function() {
-            return !quote.isVirtual() && quote.shippingAddress() && quote.shippingAddress().canUseForBilling();
-        }
+        canUseShippingAddress: ko.observable(false)
     };
     return function(target) {
         return target.extend(mixin);
