@@ -8,21 +8,25 @@ define([
     return function(config, element) {
         var elem = $(element);
         var addtocart_form = elem.parents('#product_addtocart_form');
-        var loading_cls = 'loading';
+        var use_swift_gift = false;
         elem.on('click', function(e) {
-            addtocart_form.addClass(loading_cls);
-            elem.prop('disabled', true);
-            $.post(
-                addtocart_form.attr('action'),
-                addtocart_form.serialize()
-            ).then(function(result) {
-                uiRegistry.get('localStorage').set('swift_gift_used_init_value', true);
-                elem.prop('disabled', false);
-                addtocart_form.removeClass(loading_cls);
-                location.href = checkout.checkoutUrl;
-            });
+            use_swift_gift = true;
+            addtocart_form.submit();
             e.preventDefault();
             return false;
+        });
+        var btn_standard_elem = $('#product-addtocart-button');
+        btn_standard_elem.on('click', function(e) {
+            use_swift_gift = false;
+        });
+        function handleProductCartAddFormSubmit() {
+            uiRegistry.get('localStorage').set('swift_gift_used_init_value', use_swift_gift);
+            if (use_swift_gift) {
+                location.href = checkout.checkoutUrl;
+            }
+        };
+        $(document).on('ajax:addToCart', function(e, data) {
+            handleProductCartAddFormSubmit();
         });
     };
 });
