@@ -11,6 +11,9 @@ define([
         var use_swift_gift = false;
         elem.on('click', function(e) {
             elem.prop('disabled', true);
+            setTimeout(function() {
+                elem.prop('disabled', false);
+            }, 2000);
             use_swift_gift = true;
             addtocart_form.submit();
             e.preventDefault();
@@ -22,8 +25,7 @@ define([
         });
         function handleProductCartAddFormSubmit() {
             uiRegistry.get('localStorage').set('swift_gift_used_init_value', use_swift_gift);
-            if (use_swift_gift) {
-                elem.prop('disabled', false);
+            if (use_swift_gift) {                
                 location.href = checkout.checkoutUrl;
             }
         };
