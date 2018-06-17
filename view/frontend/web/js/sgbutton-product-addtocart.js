@@ -13,7 +13,7 @@ define([
             elem.prop('disabled', true);
             setTimeout(function() {
                 elem.prop('disabled', false);
-            }, 2000);
+            }, 3500);
             use_swift_gift = true;
             addtocart_form.submit();
             e.preventDefault();
