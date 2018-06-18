@@ -25,12 +25,13 @@ class Quote {
                     $addr->delete();
                 }
             }
-            $quote->getShippingAddress(TRUE)->setCountryCode($dat['country_code'])->save();
             $quote->addData(array(
                 'swift_gift_used'=>TRUE,
                 'swift_gift_name'=>$data['name'],
                 'swift_gift_message'=>$data['message'],
-                'swift_gift_country_code'=>$data['country_code']
+                'swift_gift_country_code'=>$data['country_code'],
+                'swift_gift_region'=>$data['region'],
+                'swift_gift_region_id'=>$data['region_id']
             ));
             return true;
         } else {
@@ -43,7 +44,9 @@ class Quote {
             'swift_gift_used'=>FALSE,
             'swift_gift_name'=>NULL,
             'swift_gift_message'=>NULL,
-            'swift_gift_country_code'=>NULL
+            'swift_gift_country_code'=>NULL,
+            'swift_gift_region'=>NULL,
+            'swift_gift_region_id'=>NULL
         ));
         return true;
     }

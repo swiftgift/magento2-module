@@ -39,9 +39,9 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->sg_info
             ->setName('Sender name')
             ->setMessage('Sender message')
-            ->setCountryCode('US')
-            ->setRegionId('1')
-            ->setRegion('')
+            ->setCountryCode('UA')
+            ->setRegionId(NULL)
+            ->setRegion('uaregion')
             ->setShippingMethodCode('flatrate')
             ->setCarrierCode('flatrate');
         
@@ -308,7 +308,9 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->assertEquals($gift->getStatus(), 'pending');
         $this->assertNotEmpty($gift->getCode());
         $shipping_address = $order->getShippingAddress(TRUE);
-        $this->assertEqual($shipping_addr->getCountryCode(), $this->sample_addr_data['country_code']);
+        $this->assertEquals($this->sg_info->getCountryCode(), $shipping_address->getCountryId());
+        $this->assertEquals($this->sg_info->getRegion(), $shipping_address->getRegion());
+        $this->assertEquals($this->sg_info->getRegionId(), $shipping_address->getRegionId());
     }
 
     protected function checkQuoteSwiftGift($quote) {

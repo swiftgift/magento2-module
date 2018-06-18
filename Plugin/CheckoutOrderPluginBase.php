@@ -33,7 +33,11 @@ class CheckoutOrderPluginBase {
             );
             $gift->save();
             $order->setSwiftGiftUsed(TRUE);
-            $this->order_repository->save($order);
+            $order->getShippingAddress(TRUE)
+                ->setCountryId($quote->getSwiftGiftCountryCode())
+                ->setRegion($quote->getSwiftGiftRegion())
+                ->setRegionId($quote->getSwiftGiftRegionId());
+            $this->order_repository->save($order);           
         }
     }
     

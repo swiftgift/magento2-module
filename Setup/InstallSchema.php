@@ -79,6 +79,24 @@ class InstallSchema implements InstallSchemaInterface {
         );
         $installer->getConnection()->addColumn(
             $quoteTable,
+            'swift_gift_region_id',
+            [
+                'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                'default'=>NULL,
+                'comment'=>'Swift gift region id'
+            ]
+        );
+        $installer->getConnection()->addColumn(
+            $quoteTable,
+            'swift_gift_region',
+            [
+                'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                'default'=>NULL,
+                'comment'=>'Swift gift region'
+            ]
+        );
+        $installer->getConnection()->addColumn(
+            $quoteTable,
             'swift_gift_message',
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
