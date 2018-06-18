@@ -307,9 +307,8 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->assertNotEmpty($gift->getId());
         $this->assertEquals($gift->getStatus(), 'pending');
         $this->assertNotEmpty($gift->getCode());
-        $this->assertEmpty($order->getShippingAddress(TRUE)->getCountryCode());
-        // $this->dispatch($this->order_success_url);
-        // $this->assertContains('id="swift-gift"', $this->getResponse()->getBody());
+        $shipping_address = $order->getShippingAddress(TRUE);
+        $this->assertEqual($shipping_addr->getCountryCode(), $this->sample_addr_data['country_code']);
     }
 
     protected function checkQuoteSwiftGift($quote) {

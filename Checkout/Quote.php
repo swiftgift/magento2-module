@@ -25,6 +25,7 @@ class Quote {
                     $addr->delete();
                 }
             }
+            $quote->getShippingAddress(TRUE)->setCountryCode($dat['country_code'])->save();
             $quote->addData(array(
                 'swift_gift_used'=>TRUE,
                 'swift_gift_name'=>$data['name'],
