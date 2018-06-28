@@ -134,13 +134,6 @@ class GiftStatusChangeHandlerTest extends \Magento\TestFramework\TestCase\Abstra
         ];
     }
 
-    public function testConf() {
-        $config = $this->_objectManager->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
-        var_dump(
-            $config->getValue('swiftgift/main/client_secret')
-        );
-    }
-
     /**
        @magentoAppArea frontend
      */

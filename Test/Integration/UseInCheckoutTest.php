@@ -64,6 +64,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */
     public function testSwiftGiftEnable() {
+        $this->setSgSettings();
         $quote = $this->getQuote();
         $this->setSwiftGiftUsed($quote);
         $quote = $quote->load($quote->getId());
@@ -99,6 +100,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */    
     public function testNoSwiftGiftNoShippingAddressGuest() {
+        $this->setSgSettings();
         $this->checkNoSwiftGiftNoShippingAddress($this->getQuote());
     }
 
@@ -108,6 +110,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */    
     public function testNoSwiftGiftNoShippingAddressCustomer() {
+        $this->setSgSettings();
         $this->checkNoSwiftGiftNoShippingAddress($this->withCustomer($this->getQuote()));
     }
 
@@ -128,6 +131,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
      */    
 
     public function testSetSwiftGiftSetShippingAddressGuest() {
+        $this->setSgSettings();
         $this->checkSetSwiftGiftSetShippingAddress($this->getQuote());
     }
     
@@ -137,6 +141,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */
     public function testSetSwiftGiftSetShippingAddressCustomer() {
+        $this->setSgSettings();
         $this->checkSetSwiftGiftSetShippingAddress($this->withCustomer($this->getQuote()));
     }
 
@@ -155,6 +160,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */    
     public function testSetShippingAddressSetSwiftGiftGuest() {
+        $this->setSgSettings();
         $this->checkSetShippingAddressSetSwiftGift($this->getQuote());
     }
 
@@ -164,6 +170,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */    
     public function testSetShippingAddressSetSwiftGiftCustomer() {
+        $this->setSgSettings();
         $this->checkSetShippingAddressSetSwiftGift($this->withCustomer($this->getQuote()));
     }
 
@@ -175,11 +182,18 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->checkOrderSwiftGift($order);
     }
 
+    protected function setSgSettings() {
+        $conf = $this->_objectManager->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
+        $conf->setValue('swiftgift/main/client_secret', TEST_SWIFTGIFT_CLIENT_SECRET);
+        $conf->setValue('swiftgift/main/api_base_url', TEST_SWIFTGIFT_API_BASE_URL);
+    }
+
     /**
        @magentoDataFixture Magento/Checkout/_files/quote_with_simple_product_saved.php
        @magentoAppArea frontend
     */
     public function testSetSwiftGiftNoShippingAddressGuest() {
+        $this->setSgSettings();
         $this->checkSetSwiftGiftNoShippingAddress($this->getQuote());
     }
 
@@ -189,6 +203,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
     */
     public function testSetSwiftGiftNoShippingAddressCustomer() {
+        $this->setSgSettings();
         $this->checkSetSwiftGiftNoShippingAddress($this->withCustomer($this->getQuote()));
     }    
 
@@ -207,6 +222,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */
     public function testSetShippingAddressNoSwiftGiftGuest() {
+        $this->setSgSettings();
         $this->checkSetShippingAddressNoSwiftGift($this->getQuote());
     }
 
@@ -216,6 +232,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
        @magentoAppArea frontend
      */
     public function testSetShippingAddressNoSwiftGiftCustomer() {
+        $this->setSgSettings();
         $this->checkSetShippingAddressNoSwiftGift($this->withCustomer($this->getQuote()));
     }    
 
