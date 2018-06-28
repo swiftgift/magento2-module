@@ -47,7 +47,7 @@ class Client {
         $response_data = json_decode($client->getBody(), TRUE);
         $this->logger->info("Response: status: {$client->getStatus()}. Body: {$client->getBOdy()}");
         if (!in_array($client->getStatus(), array(100, 200, 201), FALSE)) {
-            $this->logger->error("Response status not valid. Status: {$client->getStatus()}");
+            $this->logger->error("Response status not valid. Status: {$client->getStatus()}. Body: {$client->getBody()}.");
             throw new Exception\ServiceException('status_code_not_valid', array(
                 'status_code'=>$client->getStatus(),
                 'data'=>$response_data
