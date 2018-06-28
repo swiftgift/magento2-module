@@ -47,12 +47,14 @@ class Client {
         $response_data = json_decode($client->getBody(), TRUE);
         $this->logger->info("Response: status: {$client->getStatus()}. Body: {$client->getBOdy()}");
         if (!in_array($client->getStatus(), array(100, 200, 201), FALSE)) {
+            $this->logger->error("Response status not valid. Status: {$client->getStatus()}");
             throw new Exception\ServiceException('status_code_not_valid', array(
                 'status_code'=>$client->getStatus(),
                 'data'=>$response_data
             ), 'Status code not valid.');
         }
         if (isset($response_data['error'])) {
+            $this->logger->error("Error in b2b api: {$client->getBody()}");
             $error_code = isset($response_data['error']['code']) ? $response_data['error']['code'] : 'unknown';
             throw new Exception\ServiceException('response_with_error', array(
                 'error_code'=>$error_code,
