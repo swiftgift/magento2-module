@@ -33,6 +33,10 @@ define([
 ) {
     
     var swift_gift_used_init_value_key = 'swift_gift_used_init_value';
+
+    if (window.SWIFT_GIFT_SHOW !== true) {
+        return Shipping;
+    };
     
     return Shipping.extend({
         registry: uiRegistry,

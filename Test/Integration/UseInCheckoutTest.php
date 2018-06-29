@@ -182,10 +182,15 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->checkOrderSwiftGift($order);
     }
 
-    protected function setSgSettings() {
-        $conf = $this->_objectManager->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
-        $conf->setValue('swiftgift/main/client_secret', TEST_SWIFTGIFT_CLIENT_SECRET);
-        $conf->setValue('swiftgift/main/api_base_url', TEST_SWIFTGIFT_API_BASE_URL);
+    protected function setSgSettings($settings_empty=FALSE) {
+        $conf = $this->_objectManager->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);        
+        if ($settings_empty === TRUE) {
+            $conf->setValue('swiftgift/main/client_secret', NULL);
+            $conf->setValue('swiftgift/main/api_base_url', NULL);
+        } else {            
+            $conf->setValue('swiftgift/main/client_secret', TEST_SWIFTGIFT_CLIENT_SECRET);
+            $conf->setValue('swiftgift/main/api_base_url', TEST_SWIFTGIFT_API_BASE_URL);
+        }
     }
 
     /**
@@ -234,7 +239,28 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
     public function testSetShippingAddressNoSwiftGiftCustomer() {
         $this->setSgSettings();
         $this->checkSetShippingAddressNoSwiftGift($this->withCustomer($this->getQuote()));
+    }
+
+
+    /**
+       @magentoDataFixture Magento/Checkout/_files/quote_with_simple_product_saved.php
+       @magentoAppArea frontend
+     */
+    public function testSetShippingAddressNoSwiftGiftGuestWithoutSettings() {
+        $this->setSgSettings(TRUE);
+        $this->checkSetShippingAddressNoSwiftGift($this->getQuote());
+    }
+
+    /**
+       @magentoDataFixture Magento/Checkout/_files/quote_with_simple_product_saved.php
+       @magentoDataFixture Magento/Checkout/_files/customers.php
+       @magentoAppArea frontend
+     */
+    public function testSetShippingAddressNoSwiftGiftCustomerWithoutSettings() {
+        $this->setSgSettings(TRUE);
+        $this->checkSetShippingAddressNoSwiftGift($this->withCustomer($this->getQuote()));
     }    
+    
 
     protected function getQuote($reserved_order_id='test_order_with_simple_product_without_address') {
         return $this->quoteFactory->create()->load($reserved_order_id, 'reserved_order_id');

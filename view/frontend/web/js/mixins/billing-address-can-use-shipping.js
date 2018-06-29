@@ -38,6 +38,9 @@ define([
         canUseShippingAddress: ko.observable(false)
     };
     return function(target) {
-        return target.extend(mixin);
+        if (window.SWIFT_GIFT_SHOW === true) {
+            return target.extend(mixin);
+        }
+        return target;
     };
 });

@@ -5,6 +5,7 @@
     </head>
     <body>
         <referenceContainer name="header-wrapper">
+            <block class="Swiftgift\Gift\Block\ElementBase" template="Swiftgift_Gift::swiftgift-header.phtml" />
             <referenceBlock name="minicart">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">

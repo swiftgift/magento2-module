@@ -7,17 +7,20 @@ class CheckoutOrderPluginBase {
     protected $order_repository;
     protected $quote_repository;
     protected $quote_id_mask_factory;
+    protected $helper;
 
     public function __construct(
         \Swiftgift\Gift\Checkout\OrderFactory $sg_checkout_order_factory,
         \Magento\Sales\Model\OrderRepository $order_repository,
         \Magento\Quote\Model\QuoteRepository $quote_repository,
-        \Magento\Quote\Model\QuoteIdMaskFactory $quote_id_mask_factory
+        \Magento\Quote\Model\QuoteIdMaskFactory $quote_id_mask_factory,
+        \Swiftgift\Gift\Helper\Data $helper
     ) {
         $this->sg_checkout_order_factory = $sg_checkout_order_factory;
         $this->order_repository = $order_repository;
         $this->quote_repository = $quote_repository;
         $this->quote_id_mask_factory = $quote_id_mask_factory;
+        $this->helper = $helper;
     }
 
     protected function handleOrderSave($order, $quote) {
