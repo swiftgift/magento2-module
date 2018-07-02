@@ -5,7 +5,6 @@
         <swiftgift>
             <main>
                 <api_base_url>https://api.swiftgift.me/</api_base_url>
-                <magic_link_base_url>https://magento.swiftgift.me</magic_link_base_url>
             </main>
         </swiftgift>
     </default>

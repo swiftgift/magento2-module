@@ -19,20 +19,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
     }
 
     public function isConfigValid() {
-        return $this->scopeConfig->getValue('swiftgift/main/api_base_url') && $this->scopeConfig->getValue('swiftgift/main/client_secret') && $this->scopeConfig->getValue('swiftgift/main/magic_link_base_url');
+        return $this->scopeConfig->getValue('swiftgift/main/api_base_url') && $this->scopeConfig->getValue('swiftgift/main/client_secret');
     }
 
     public function isCanUse() {
         return $this->isConfigValid();
     }
-
-    public function getMagicLinkUrl($code) {
-        return $this->utils->joinWithTrim(
-            [
-                $this->context->getScopeConfig()->getValue('swiftgift/main/magic_link_base_url'),
-                $code
-            ]
-        );
-    }
-    
 }
