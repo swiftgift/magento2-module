@@ -20,10 +20,6 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
         $this->helper = $helper;
     }
 
-    public function getGift() {
-        return 'gift data';
-    }
-
     protected function _beforeToHtml()
     {
         $this->prepareBlockData();
@@ -43,7 +39,7 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
             'show'=>$order->getSwiftGiftUsed(),
             'gift'=>$gift,
             'success'=>$success,
-            'magic_link_url'=>($gift ? $this->helper->getMagicLinkUrl($gift->getCode()) : null)
+            'magic_link_url'=>($gift ? $gift->getShareUrl() : null)
         ]);
     }    
     

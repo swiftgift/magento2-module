@@ -41,6 +41,13 @@ class InstallSchema implements InstallSchemaInterface {
                        'code'
                    )
                    ->addColumn(
+                       'share_url',
+                       \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                       100,
+                       ['nullable' => true],
+                       'share_url'
+                   )
+                   ->addColumn(
                        'status_change_time',
                        \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
                        ['nullable' => false]

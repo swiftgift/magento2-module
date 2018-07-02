@@ -55,7 +55,8 @@ class Order {
         $gift_result_data = $this->sg_service_factory->create()->createGift($gift_data);
         $gift->addData(array(
             'status'=>'pending',
-            'code'=>$gift_result_data['code']
+            'code'=>$gift_result_data['code'],
+            'share_url'=>$gift_result_data['share_url']
         ));
         $gift->setStatusChangeTime(time());
         $gift->save();

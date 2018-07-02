@@ -350,10 +350,21 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->assertNotEmpty($gift->getId());
         $this->assertEquals($gift->getStatus(), 'pending');
         $this->assertNotEmpty($gift->getCode());
+        $this->assertNotEmpty($gift->getShareUrl());
         $shipping_address = $order->getShippingAddress(TRUE);
         $this->assertEquals($this->sg_info->getCountryCode(), $shipping_address->getCountryId());
         $this->assertEquals($this->sg_info->getRegion(), $shipping_address->getRegion());
         $this->assertEquals($this->sg_info->getRegionId(), $shipping_address->getRegionId());
+        $cs = $this->createMock(\Magento\Checkout\Model\Session::class);
+        $cs->method('getLastRealOrder')->willReturn($order);
+        $order_success_block = new \Swiftgift\Gift\Block\OrderSuccessGift(
+            $this->_objectManager->get(\Magento\Framework\View\Element\Template\Context::class),
+            $cs,
+            $this->_objectManager->get(\Swiftgift\Gift\Model\GiftFactory::class),
+            $this->_objectManager->get(\Swiftgift\Gift\Helper\Data::class)
+        );
+        $order_success_block->toHtml();
+        $this->assertEquals($gift->getShareUrl(), $order_success_block->getMagicLinkUrl());
     }
 
     protected function checkQuoteSwiftGift($quote) {
