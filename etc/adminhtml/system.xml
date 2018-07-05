@@ -10,9 +10,6 @@
             <resource>Swiftgift_Gift::config</resource>
             <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Main</label>
-                <field id="api_base_url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Api base url</label>
-                </field>
                 <field id="client_secret" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client secret key</label>
                 </field>
