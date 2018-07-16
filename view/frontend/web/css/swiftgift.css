@@ -32,20 +32,22 @@
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-text {
     display: table-cell;
-    vertical-align: top;
+    vertical-align: middle;
     width: auto;
+    padding-left:0.5em;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-header-tick {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-tick {
     display: table-cell;
-    vertical-align: top;
-    padding-right:0.5em;
+    vertical-align: middle;
+    width:26px;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-logo {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo {
     position: absolute;
     right:0;
     top:50%;
     transform: translateY(-50%);
     width:112px;
+    margin-top:-2px;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon {
     width:100%;
@@ -171,6 +173,25 @@
     vertical-align: middle;
 }
 
+/* SwiftGift checkbox view tick element */
+.swiftgift-tick {
+    height:26px;
+    width:26px;
+    display: inline-block;
+}
+.swiftgift-tick .swiftgift-icon {
+    width:100%;
+    vertical-align: top;
+}
+.swiftgift-tick .swiftgift-icon .swiftgift-icon-path {
+    fill:#dddbdb;
+}
+.swiftgift-tick .swiftgift-icon .swiftgift-icon-path.tick {
+    opacity:0;
+}
+
+
+
 
 /* SwiftGift checkbox view for Magento 2 */
 .swiftgift-checkbox {
@@ -185,19 +206,6 @@
     margin-bottom:1em;
     display: block;
     cursor: pointer;
-}
-
-/* SwiftGift checkbox view tick element */
-.swiftgift-radio-tick {
-    height:26px;
-    width:26px;
-}
-.swiftgift-tick .swiftgift-icon-path {
-    fill:#dddbdb;
-
-}
-.swiftgift-tick .swiftgift-icon-path.tick {
-    opacity:0;
 }
 .swiftgift-checkbox-label:hover {
     opacity:0.9;
