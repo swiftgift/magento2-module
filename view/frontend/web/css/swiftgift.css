@@ -21,20 +21,17 @@
 
 /* SwiftGift checkout widget */
 .swiftgift-radio .swiftgift-radio-header {
-    border-bottom: 2px solid #dddbdb;
-    margin-bottom: 10px;
     min-width: 315px;
     position: relative;
     display: table;
     table-layout: fixed;
     width:100%;
-    padding-bottom: 5px;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-text {
     display: table-cell;
     vertical-align: middle;
     width: auto;
-    padding-left:0.5em;
+    padding-left:15px;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-tick {
     display: table-cell;
@@ -47,7 +44,6 @@
     top:50%;
     transform: translateY(-50%);
     width:112px;
-    margin-top:-2px;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon {
     width:100%;
@@ -58,20 +54,22 @@
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-short-description {
     font-size:70%;
-} 
-.swiftgift-radio .swiftgift-radio-body ol {
+}
+.swiftgift-radio .swiftgift-radio-body {max-height: 0px;overflow: hidden;transition: all 0.25s ease-in 0s;opacity: 0;}
+.swiftgift-radio .swiftgift-radio-body .swiftgift-radio-body-content {margin-top: 10px;padding-top: 10px;border-top: 2px solid #dddbdb;}
+.swiftgift-radio .swiftgift-radio-body .swiftgift-radio-body-content ol {
     counter-reset:swiftgiftlist;
     margin:0;
     padding:0
 }
-.swiftgift-radio .swiftgift-radio-body ol li {
+.swiftgift-radio .swiftgift-radio-body .swiftgift-radio-body-content ol li {
     list-style:none;
     font-weight:300;
     padding-left:25px;
     position:relative;
     margin-bottom:0.5em;
 }
-.swiftgift-radio .swiftgift-radio-body ol li:before {
+.swiftgift-radio .swiftgift-radio-body .swiftgift-radio-body-content ol li:before {
     position: absolute;
     counter-increment: swiftgiftlist;
     content: counter(swiftgiftlist);
@@ -198,6 +196,7 @@
 }
 .swiftgift-tick .swiftgift-icon .swiftgift-icon-path {
     fill:#dddbdb;
+    transition: all 0.15s ease-in 0s;
 }
 .swiftgift-tick .swiftgift-icon .swiftgift-icon-path.tick {
     opacity:0;
@@ -233,4 +232,8 @@
 }
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path.tick {
     opacity:1;
+}
+.swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-radio .swiftgift-radio-body {
+    opacity: 1;
+    max-height: 300px;
 }
