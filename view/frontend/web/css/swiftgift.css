@@ -90,16 +90,17 @@
 
 /* SwiftGift Magic Link widget */
 .swiftgift-checkout-magiclink {
-    margin: 0 auto;
+    margin: 0 auto 2em;
     max-width:610px;
 }
 .swiftgift-checkout-magiclink h3 {
     color:#fff;
+    margin-top:0px;
     text-align: left;
 }
 .swiftgift-checkout-magiclink p {
     color:#fff;
-    margin-bottom: 2em;
+    margin-bottom: 0;
     text-align: left;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-header {
@@ -113,17 +114,21 @@
     padding: 20px 30px 40px 30px;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-body p {
-    text-align:center;margin-bottom: 1em;
+    text-align:center;
+    margin-bottom: 1em;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-input {
     width:100%;
     max-width:320px;
     display:block;
-    margin: 0 auto 10px auto;
+    margin: 1em auto;
     height: 50px;
     color: #333333;
     text-align: center;
     border-width: 0px;
+    border-radius: 3px;
+    font-size: 14px;
+    box-shadow: none !important;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-button {
     width:100%;
@@ -131,7 +136,13 @@
     display:block;
     background-color: #0879C6;
     height:56px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
+    border: 0 none;
+    box-shadow: none !important;
+    line-height: 56px;
+    font-size: 15px;
+    padding: 0;
+    color: #fff;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-button span {
     line-height:56px;
@@ -167,9 +178,11 @@
     vertical-align: middle;
     margin-right: 0.25em;
     border-radius: 100%;
-    font-size: 0px;}
+    font-size: 0px;
+}
 .swiftgift-checkout-magiclink-social li span {
     line-height: 31px;
+    font-size:12px;
     vertical-align: middle;
 }
 
