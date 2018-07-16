@@ -10,12 +10,12 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Swiftgift\Gift\Model\GiftFactory $giftModelFactory,        
+        \Swiftgift\Gift\Model\GiftFactory $giftModelFactory,
         \Swiftgift\Gift\Helper\Data $helper
         
     ) {
         parent::__construct($context);
-        $this->checkoutSession = $checkoutSession;        
+        $this->checkoutSession = $checkoutSession;
         $this->giftModelFactory = $giftModelFactory;
         $this->helper = $helper;
     }
