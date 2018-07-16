@@ -28,6 +28,7 @@
     display: table;
     table-layout: fixed;
     width:100%;
+    padding-bottom: 5px;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-text {
     display: table-cell;
@@ -39,15 +40,18 @@
     vertical-align: top;
     padding-right:0.5em;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-icon {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-logo {
     position: absolute;
     right:0;
     top:50%;
     transform: translateY(-50%);
     width:112px;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon {
+    width:100%;
     height: auto;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-icon .swiftgift-icon-path {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon .swiftgift-icon-path {
     fill:#28ACFE;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-short-description {
@@ -189,7 +193,8 @@
     width:26px;
 }
 .swiftgift-tick .swiftgift-icon-path {
-    fill:#59afe2;
+    fill:#dddbdb;
+
 }
 .swiftgift-tick .swiftgift-icon-path.tick {
     opacity:0;
@@ -201,6 +206,9 @@
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label {
     opacity:1;
     border-color:#eee;
+}
+.swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path {
+    fill:#28ACFE;
 }
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path.tick {
     opacity:1;
