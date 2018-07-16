@@ -19,11 +19,21 @@
 .swiftgift-radio .swiftgift-radio-header {
     border-bottom: 2px solid #dddbdb;
     margin-bottom: 10px;
-    padding-bottom: 5px;
-    background-repeat: no-repeat;
-    background-position: right center;
     min-width: 315px;
     position: relative;
+    display: table;
+    table-layout: fixed;
+    width:100%;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-text {
+    display: table-cell;
+    vertical-align: top;
+    width: auto;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-header-tick {
+    display: table-cell;
+    vertical-align: top;
+    padding-right:0.5em;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-icon {
     position: absolute;
@@ -113,13 +123,23 @@
 }
 .swiftgift-checkbox-label {
     padding:10px 15px;
-    border: 1px solid #f9f9f9;
+    border:1px solid #f9f9f9;
     border-radius:5px;
     background-color:#f4f4f4;
     opacity:0.65;
     margin-bottom:1em;
     display: block;
     cursor: pointer;
+}
+.swiftgift-radio-tick {
+    height:26px;
+    width:26px;
+}
+.swiftgift-tick .swiftgift-icon-path {
+    fill:#59afe2;
+}
+.swiftgift-tick .swiftgift-icon-path.tick {
+    opacity:0;
 }
 .swiftgift-checkbox-label:hover {
     opacity:0.9;
@@ -128,4 +148,7 @@
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label {
     opacity:1;
     border-color:#eee;
+}
+.swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path.tick {
+    opacity:1;
 }
