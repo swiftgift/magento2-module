@@ -15,9 +15,8 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
         
     ) {
         parent::__construct($context);
-        $this->checkoutSession = $checkoutSession;        
+        $this->checkoutSession = $checkoutSession;
         $this->giftModelFactory = $giftModelFactory;
-        $this->assetRepository = $assetRepository;
         $this->helper = $helper;
     }
 
