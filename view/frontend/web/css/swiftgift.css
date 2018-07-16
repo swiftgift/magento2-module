@@ -1,3 +1,4 @@
+/* Default template css fix */
 .product-info-main .product-add-form .actions .swiftgift-product-button {
     width: 100%;
     padding:12px 0;
@@ -7,6 +8,8 @@
         width: 49%;
     }
 }
+
+/* SwiftGift .svg icons */
 .swiftgift-icon {
     vertical-align: sub;
     display: inline;
@@ -14,26 +17,43 @@
     height: auto;
 }
 .swiftgift-icon-path {fill:currentColor}
-.swiftgift-radio {
-}
+
+
+/* SwiftGift checkout widget */
 .swiftgift-radio .swiftgift-radio-header {
     border-bottom: 2px solid #dddbdb;
     margin-bottom: 10px;
-    padding-bottom: 5px;
-    background-repeat: no-repeat;
-    background-position: right center;
     min-width: 315px;
     position: relative;
+    display: table;
+    table-layout: fixed;
+    width:100%;
+    padding-bottom: 5px;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-icon {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-text {
+    display: table-cell;
+    vertical-align: middle;
+    width: auto;
+    padding-left:0.5em;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-tick {
+    display: table-cell;
+    vertical-align: middle;
+    width:26px;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo {
     position: absolute;
     right:0;
     top:50%;
     transform: translateY(-50%);
     width:112px;
+    margin-top:-2px;
+}
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon {
+    width:100%;
     height: auto;
 }
-.swiftgift-radio .swiftgift-radio-header .swiftgift-icon .swiftgift-icon-path {
+.swiftgift-radio .swiftgift-radio-header .swiftgift-radio-header-logo .swiftgift-icon .swiftgift-icon-path {
     fill:#28ACFE;
 }
 .swiftgift-radio .swiftgift-radio-header .swiftgift-radio-short-description {
@@ -51,7 +71,6 @@
     position:relative;
     margin-bottom:0.5em;
 }
-
 .swiftgift-radio .swiftgift-radio-body ol li:before {
     position: absolute;
     counter-increment: swiftgiftlist;
@@ -68,31 +87,48 @@
     font-size: 80%;
 }
 
+
+/* SwiftGift Magic Link widget */
 .swiftgift-checkout-magiclink {
-    border-radius: 5px;
-    background-color: #28acfe;
-    margin: 0 auto;
-    max-width:590px;
-    padding:30px;
+    margin: 0 auto 2em;
+    max-width:610px;
 }
 .swiftgift-checkout-magiclink h3 {
     color:#fff;
+    margin-top:0px;
     text-align: left;
 }
 .swiftgift-checkout-magiclink p {
     color:#fff;
-    margin-bottom: 2em;
+    margin-bottom: 0;
     text-align: left;
+}
+.swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-header {
+    background-color: #1D9CEC;
+    padding: 30px 30px 30px 30px;
+    border-radius: 5px 5px 0 0;
+}
+.swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-body {
+    background-color: #28acfe;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 30px 40px 30px;
+}
+.swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-body p {
+    text-align:center;
+    margin-bottom: 1em;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-input {
     width:100%;
     max-width:320px;
     display:block;
-    margin: 0 auto 10px auto;
+    margin: 1em auto;
     height: 50px;
     color: #333333;
     text-align: center;
     border-width: 0px;
+    border-radius: 3px;
+    font-size: 14px;
+    box-shadow: none !important;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-button {
     width:100%;
@@ -100,7 +136,13 @@
     display:block;
     background-color: #0879C6;
     height:56px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
+    border: 0 none;
+    box-shadow: none !important;
+    line-height: 56px;
+    font-size: 15px;
+    padding: 0;
+    color: #fff;
 }
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-button span {
     line-height:56px;
@@ -108,12 +150,69 @@
 .swiftgift-checkout-magiclink .swiftgift-checkout-magiclink-button .swiftgift-icon {
     width:24px;
 }
+
+
+/* SwiftGift social icons set */
+.swiftgift-checkout-magiclink-social {
+    list-style: none;
+    margin: 0 0 1em 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0px;
+}
+.swiftgift-checkout-magiclink-social li {
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 0.25em;
+    font-size: 14px;
+    color: #fff;
+    margin-right: 0.25em;
+}
+.swiftgift-checkout-magiclink-social li:last-child {
+    margin-right:0px;
+}
+.swiftgift-checkout-magiclink-social li img {
+    height: 31px;
+    width: 31px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    border-radius: 100%;
+    font-size: 0px;
+}
+.swiftgift-checkout-magiclink-social li span {
+    line-height: 31px;
+    font-size:12px;
+    vertical-align: middle;
+}
+
+/* SwiftGift checkbox view tick element */
+.swiftgift-tick {
+    height:26px;
+    width:26px;
+    display: inline-block;
+}
+.swiftgift-tick .swiftgift-icon {
+    width:100%;
+    vertical-align: top;
+}
+.swiftgift-tick .swiftgift-icon .swiftgift-icon-path {
+    fill:#dddbdb;
+}
+.swiftgift-tick .swiftgift-icon .swiftgift-icon-path.tick {
+    opacity:0;
+}
+
+
+
+
+/* SwiftGift checkbox view for Magento 2 */
 .swiftgift-checkbox {
     display: none !important;
 }
 .swiftgift-checkbox-label {
     padding:10px 15px;
-    border: 1px solid #f9f9f9;
+    border:1px solid #f9f9f9;
     border-radius:5px;
     background-color:#f4f4f4;
     opacity:0.65;
@@ -128,4 +227,10 @@
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label {
     opacity:1;
     border-color:#eee;
+}
+.swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path {
+    fill:#28ACFE;
+}
+.swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-tick .swiftgift-icon-path.tick {
+    opacity:1;
 }
