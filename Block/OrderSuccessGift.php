@@ -5,18 +5,21 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
 
     protected $checkoutSession;
     protected $giftModelFactory;
+    protected $assetRepository;
     protected $helper;
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Swiftgift\Gift\Model\GiftFactory $giftModelFactory,        
+        \Swiftgift\Gift\Model\GiftFactory $giftModelFactory,
+        \Magento\Framework\View\Asset\Repository $assetRepository,
         \Swiftgift\Gift\Helper\Data $helper
         
     ) {
         parent::__construct($context);
         $this->checkoutSession = $checkoutSession;        
         $this->giftModelFactory = $giftModelFactory;
+        $this->assetRepository = $assetRepository;
         $this->helper = $helper;
     }
 
@@ -39,7 +42,8 @@ class OrderSuccessGift extends \Magento\Framework\View\Element\Template {
             'show'=>$order->getSwiftGiftUsed(),
             'gift'=>$gift,
             'success'=>$success,
-            'magic_link_url'=>($gift ? $gift->getShareUrl() : null)
+            'magic_link_url'=>($gift ? $gift->getShareUrl() : null),
+            'assets'=>$this->assetRepository
         ]);
     }    
     
