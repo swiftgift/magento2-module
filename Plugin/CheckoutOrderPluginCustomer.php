@@ -8,7 +8,7 @@ class CheckoutOrderPluginCustomer extends CheckoutOrderPluginBase {
             $quote = $this->quote_repository->get($cartId);
             if ($quote->getSwiftGiftUsed() === '1') {
                 //$quote->getShippingAddress()->setCountryId('GB')->save();
-                $this->quote_repository->save($quote);
+                //$this->quote_repository->save($quote);
             }
             $orderId = $methodClosure($cartId, $paymentMethod, $billingAddress);
             $order = $this->order_repository->get($orderId);
