@@ -10,8 +10,7 @@ class CheckoutOrderPluginCustomer extends CheckoutOrderPluginBase {
                 $quote
                     ->getShippingAddress()
                     ->setCountryId('GB')
-                    ->setShippingMethodCode('flatrate')
-                    ->setShippingCarrierCode('flatrate');
+                    ->save();
                 $this->quote_repository->save($quote);
             }
             $orderId = $methodClosure($cartId, $paymentMethod, $billingAddress);
