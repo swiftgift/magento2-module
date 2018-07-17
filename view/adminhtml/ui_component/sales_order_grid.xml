@@ -5,7 +5,7 @@
             <settings>
                 <filter>text</filter>
                 <dataType>text</dataType>
-                <label>SwiftGift used</label>
+                <label>SwiftGift</label>
                 <sorting>desc</sorting>
             </settings>
         </column>
