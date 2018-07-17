@@ -41,15 +41,7 @@ class ValidatorFactory {
                 array_merge(array(
                     'property'=>'country_code',
                     'alias'=>'country_code'
-                ), $country_code_rule),
-                array(
-                    'property'=>'name',
-                    'alias'=>'name'
-                ),
-                array(
-                    'property'=>'message',
-                    'alias'=>'message'
-                )
+                ), $country_code_rule)
             ]
         ]);
         return $builder->createValidator();
