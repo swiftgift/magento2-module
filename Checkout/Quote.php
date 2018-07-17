@@ -22,7 +22,7 @@ class Quote {
             $addrs = $quote->getAllShippingAddresses();
             if ($addrs) {
                 foreach ($addrs as $addr) {
-                    //$addr->delete();
+                    $addr->delete();
                 }
             }
             $quote->addData(array(
