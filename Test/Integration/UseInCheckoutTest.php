@@ -26,6 +26,7 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
     private $order_success_url = 'checkout/onepage/success';
 
     private $sg_info;
+    private $sg_info_min;
 
     protected function setUp() {        
         parent::setUp();
@@ -39,6 +40,16 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $this->sg_info
             ->setName('Sender name')
             ->setMessage('Sender message')
+            ->setCountryCode('UA')
+            ->setRegionId(NULL)
+            ->setRegion('uaregion')
+            ->setShippingMethodCode('flatrate')
+            ->setCarrierCode('flatrate');
+
+        $this->sg_info_min = $this->_objectManager->create(\Swiftgift\Gift\Api\Data\SwiftGiftInfoInterface::class);
+        $this->sg_info_min
+            ->setName(NULL)
+            ->setMessage(NULL)
             ->setCountryCode('UA')
             ->setRegionId(NULL)
             ->setRegion('uaregion')
@@ -280,6 +291,11 @@ class UseInCheckoutTest extends \Magento\TestFramework\TestCase\AbstractControll
         $result = $checkout_api->enable(
             $cart_id,
             $this->sg_info
+        );
+        $this->assertEquals($result->getSuccess(), TRUE);
+        $result = $checkout_api->enable(
+            $cart_id,
+            $this->sg_info_min
         );
         $this->assertEquals($result->getSuccess(), TRUE);
     }
