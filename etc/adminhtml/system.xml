@@ -12,7 +12,7 @@
                 <label>Main</label>
                 <field id="client_secret" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client secret key</label>
-                    <tooltip>To activate SwiftGift for this store, you need to <a href="https://b2b.swiftgift.me/registration" target="_blank">register an account</a> and receive a Secret Key.</tooltip>
+                    <comment>To activate SwiftGift for this store, you need to register an account at b2b.swiftgift.me and receive a Secret Key.</comment>
                 </field>
             </group>
         </section>
