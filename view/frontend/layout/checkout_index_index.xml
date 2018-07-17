@@ -31,26 +31,9 @@
                                                                     <item name="label" xsi:type="string">Name</item>
                                                                     <item name="sortOrder" xsi:type="string">1</item>
                                                                     <item name="validation" xsi:type="array">
-                                                                        <item name="required-entry" xsi:type="string">true</item>
                                                                     </item>
                                                                 </item>
 
-                                                                <item name="message" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
-                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
-                                                                        <item name="template" xsi:type="string">ui/form/field</item>
-                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
-                                                                    </item>
-                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                                    <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_message</item>
-                                                                    <item name="label" xsi:type="string">Message</item>
-                                                                    <item name="sortOrder" xsi:type="string">1</item>
-                                                                    <item name="validation" xsi:type="array">
-                                                                        <item name="required-entry" xsi:type="string">true</item>
-                                                                    </item>
-                                                                </item>
                                                                 <item name="country_id" xsi:type="array">
                                                                     <item name="deps" xsi:type="array">
                                                                         <item name="0" xsi:type="string">checkoutProvider</item>
@@ -63,6 +46,7 @@
                                                                     </item>
                                                                     <item name="dataScope" xsi:type="string">shippingAddress.country_id</item>
                                                                     <item name="label" xsi:type="string">Country</item>
+                                                                    <item name="sortOrder" xsi:type="string">2</item>
                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                     <item name="validation" xsi:type="array">
                                                                         <item name="required-entry" xsi:type="string">true</item>
@@ -92,6 +76,7 @@
                                                                     </item>
                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                     <item name="label" xsi:type="string">State/Province</item>
+                                                                    <item name="sortOrder" xsi:type="string">3</item>
                                                                     <item name="dataScope" xsi:type="string">shippingAddress.region_id</item>
                                                                     <item name="imports" xsi:type="array">
                                                                         <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>
@@ -102,7 +87,22 @@
                                                                         <item name="field" xsi:type="string">country_id</item>
                                                                     </item>
                                                                 </item>                                                                
-                                                                
+
+                                                                <item name="message" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
+                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                    </item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_message</item>
+                                                                    <item name="label" xsi:type="string">Message</item>
+                                                                    <item name="sortOrder" xsi:type="string">4</item>
+                                                                    <item name="validation" xsi:type="array">
+                                                                    </item>
+                                                                </item>                                                                
                                                                 
                                                             </item>
                                                         </item>
