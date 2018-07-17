@@ -14,6 +14,10 @@
                     <label>Client secret key</label>
                     <comment>To activate SwiftGift for this store, you need to register an account at b2b.swiftgift.me and receive a Secret Key.</comment>
                 </field>
+                <field id="api_base_url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Api base url</label>
+                    <comment>Api base url</comment>
+                </field>                
             </group>
         </section>
     </system>
