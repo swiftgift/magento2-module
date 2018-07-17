@@ -89,12 +89,11 @@
                                                                 </item>                                                                
 
                                                                 <item name="message" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
                                                                     <item name="config" xsi:type="array">
                                                                         <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
                                                                         <item name="customScope" xsi:type="string">swiftgiftForm</item>
                                                                         <item name="template" xsi:type="string">ui/form/field</item>
-                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/textarea</item>
                                                                     </item>
                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                     <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_message</item>
