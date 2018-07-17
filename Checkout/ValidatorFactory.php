@@ -45,11 +45,11 @@ class ValidatorFactory {
                 array_merge(array(
                     'property'=>'name',
                     'alias'=>'name'
-                ), $not_empty),
+                ), array()),
                 array_merge(array(
                     'property'=>'message',
                     'alias'=>'message'
-                ), $not_empty),
+                ), array()),
             ]
         ]);
         return $builder->createValidator();
