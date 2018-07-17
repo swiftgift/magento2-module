@@ -15,5 +15,14 @@ class Gift extends \Magento\Framework\Model\AbstractModel {
         ]);
         return $this;
     }
+
+    public function getStatusRepr() {
+        $gift_status_repr = [
+            'accepted'=>'Accepted',
+            'pending'=> 'Pending',
+            'initialized'=>'Initalized'
+        ];
+        return isset($gift_status_repr[$this->getStatus()]) ? $gift_status_repr[$this->getStatus()] : 'unknown';
+    }
     
 }

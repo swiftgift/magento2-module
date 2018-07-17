@@ -18,6 +18,11 @@ class SwiftGiftInfo extends \Magento\Ui\Component\Listing\Columns\Column {
 
     public function prepareDataSource(array $dataSource) {
         $gifts = [];
+        $gift_status_repr = [
+            'accepted'=>'Gift accepted',
+            'pending'=> 'Gift pending',
+            'initialized'=>'Gift initalized'
+        ];
         foreach ($this->giftCollectionFactory->create()->getData() as $gift_data) {
             $gifts[$gift_data['order_id']] = $gift_data;
         }
@@ -26,7 +31,12 @@ class SwiftGiftInfo extends \Magento\Ui\Component\Listing\Columns\Column {
                 $value = '---';
                 if (isset($gifts[(int)$item['entity_id']])) {
                     $gift = $gifts[(int)$item['entity_id']];
-                    $value = "Gift status: {$gift['status']}; Code: {$gift['code']}";
+                    $gift_status_str = isset($gift_status_repr[$gift['status']]) ? $gift_status_repr[$gift['status']] : 'unknown';
+                    $value_data = ["{$gift_status_str}"];
+                    if (isset($gift['code']) && $gift['code']) {
+                        $value_data[] = "Code: {$gift['code']}";
+                    }
+                    $value = implode('; ', $value_data);
                 }
                 $item[$this->getData('name')] = $value;
             }

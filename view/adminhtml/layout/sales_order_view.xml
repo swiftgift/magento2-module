@@ -1,0 +1,9 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="sales_order_tabs" after="-">
+        <block class="Swiftgift\Gift\Block\Adminhtml\Order\View\Tab\Info" name="block_swiftgit_admin_order_info" template="Swiftgift_Gift::sales-order-view.phtml" />
+        <action method="addTab">
+            <argument name="name" xsi:type="string">tab_swiftgift_admin_order_info</argument>
+            <argument name="block" xsi:type="string">block_swiftgit_admin_order_info</argument>
+        </action>
+    </referenceBlock>
+</page>
