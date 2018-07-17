@@ -1,6 +1,6 @@
 {
     "name": "swiftgift/gift",
-    "description": "Swift gift integration module for magento 2.",
+    "description": "SwiftGift integration extension for Magento 2.x",
     "license": [
         "OSL-3.0"
     ],

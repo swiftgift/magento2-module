@@ -20,7 +20,7 @@ class Info extends \Magento\Sales\Block\Adminhtml\Order\AbstractOrder implements
         );
         $this->giftModelFactory = $giftModelFactory;
     }
-    
+
     public function getOrder()
     {
         return $this->_coreRegistry->registry('current_order');
@@ -29,7 +29,7 @@ class Info extends \Magento\Sales\Block\Adminhtml\Order\AbstractOrder implements
     public function getSource()
     {
         return $this->getOrder();
-    }    
+    }
 
     public function getGiftByOrderId($order_id) {
         $gift = null;
@@ -39,15 +39,15 @@ class Info extends \Magento\Sales\Block\Adminhtml\Order\AbstractOrder implements
         }
         return $gift;
     }
-    
+
     public function getTabLabel()
     {
-        return 'Swift gift';
+        return 'SwiftGift';
     }
 
     public function getTabTitle()
     {
-        return 'Swift gift order info';
+        return 'SwiftGift order info';
     }
 
     protected function _beforeToHtml()
@@ -57,7 +57,7 @@ class Info extends \Magento\Sales\Block\Adminhtml\Order\AbstractOrder implements
             'gift'=>$this->getGiftByOrderId($order->getId())
         ]);
         return parent::_beforeToHtml();
-    }    
+    }
 
     public function canShowTab()
     {
@@ -72,6 +72,6 @@ class Info extends \Magento\Sales\Block\Adminhtml\Order\AbstractOrder implements
     public function isHidden()
     {
         return false;
-    }    
+    }
 
 }

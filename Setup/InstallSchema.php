@@ -6,7 +6,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
 
 class InstallSchema implements InstallSchemaInterface {
-    
+
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context) {
         $installer = $setup;
 		$installer->startSetup();
@@ -63,7 +63,7 @@ class InstallSchema implements InstallSchemaInterface {
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
                 'default'=>'0',
                 'nullable'=>FALSE,
-                'comment'=>'Swift gift used'
+                'comment'=>'SwiftGift used'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -72,7 +72,7 @@ class InstallSchema implements InstallSchemaInterface {
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 'default'=>NULL,
-                'comment'=>'Swift gift name'
+                'comment'=>'SwiftGift name'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -81,7 +81,7 @@ class InstallSchema implements InstallSchemaInterface {
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 'default'=>NULL,
-                'comment'=>'Swift gift country code'
+                'comment'=>'SwiftGift country code'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -90,7 +90,7 @@ class InstallSchema implements InstallSchemaInterface {
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 'default'=>NULL,
-                'comment'=>'Swift gift region id'
+                'comment'=>'SwiftGift region id'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -99,7 +99,7 @@ class InstallSchema implements InstallSchemaInterface {
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 'default'=>NULL,
-                'comment'=>'Swift gift region'
+                'comment'=>'SwiftGift region'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -108,7 +108,7 @@ class InstallSchema implements InstallSchemaInterface {
             [
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 'default'=>NULL,
-                'comment'=>'Swift gift message'
+                'comment'=>'SwiftGift message'
             ]
         );
         $installer->getConnection()->addColumn(
@@ -118,7 +118,7 @@ class InstallSchema implements InstallSchemaInterface {
                 'type'=>\Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
                 'nullable'=>FALSE,
                 'default'=>'0',
-                'comment'=>'Swift gift used'
+                'comment'=>'SwiftGift used'
             ]
         );
         $installer->endSetup();

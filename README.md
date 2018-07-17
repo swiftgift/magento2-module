@@ -1,11 +1,11 @@
 # magento2-module
-Swift gift integration module for magento 2.
+SwiftGift integration extension for Magento 2.x
 
 ## Manual installation
 
-Go to your magento2 instance's dir: `cd <magento2_root_dir>`
+Go to your Magento 2.x directory: `cd <magento2_root_dir>`
 
-Put plugin's code into `<magento2_root_dir>/app/code/Swiftgift/Gift`. 
+Put the extension code into `<magento2_root_dir>/app/code/Swiftgift/Gift`.
 
 Run `./bin/magento setup:upgrade`
 
@@ -13,8 +13,10 @@ Run `./bin/magento setup:di:compile`
 
 Run `./bin/magento cache:flush`
 
-Go to Magento's admin panel and configure SwiftGift plugin: Stores -> Configuration -> Swiftgift
+Go to your Magento Admin Dashboard and configure SwiftGift extension at Stores -> Configuration -> SwiftGift.
 
-You have to specify client secret obtained on [b2b.swiftgift.me](https://b2b.swiftgift.me) there.
+You have to specify the Secret Key obtained at [b2b.swiftgift.me/registration](https://b2b.swiftgift.me/registration).
 
-Save configuration and run `./bin/magento cache:flush` again.
+API base URL should remain `https://api.swiftgift.me/`
+
+Save the configuration and run `./bin/magento cache:flush` again.
