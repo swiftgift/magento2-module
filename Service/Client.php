@@ -25,10 +25,10 @@ class Client {
         $this->logger->info("Send request. {$method}, {$request_url}, {$request_body}. Accesstoken: {$access_token}");
         $client = $this->http_client_factory->create();
         if ($access_token !== null) {
-            $client->addHeader("Authorization", "Bearer {$access_token}");
+            $client->setHeaders('Authorization', "Bearer {$access_token}");
         }
-        $client->{$method}($request_url, $request_body);
-        return $this->readResponse($client);
+        $client->setUri($request_url)->setMethod('POST')->setRawData($request_body);
+        return $this->readResponse($client->request());
     }
 
     public function setAccessToken($access_token) {
@@ -43,18 +43,18 @@ class Client {
         return json_encode($data);
     }
 
-    protected function readResponse($client) {
-        $response_data = json_decode($client->getBody(), TRUE);
-        $this->logger->info("Response: status: {$client->getStatus()}. Body: {$client->getBOdy()}");
-        if (!in_array($client->getStatus(), array(100, 200, 201), FALSE)) {
-            $this->logger->error("Response status not valid. Status: {$client->getStatus()}. Body: {$client->getBody()}.");
+    protected function readResponse($r) {
+        $response_data = json_decode($r->getBody(), TRUE);
+        $this->logger->info("Response: status: {$r->getStatus()}. Body: {$r->getBOdy()}");
+        if (!in_array($r->getStatus(), array(100, 200, 201), FALSE)) {
+            $this->logger->error("Response status not valid. Status: {$r->getStatus()}. Body: {$r->getBody()}.");
             throw new Exception\ServiceException('status_code_not_valid', array(
-                'status_code'=>$client->getStatus(),
+                'status_code'=>$r->getStatus(),
                 'data'=>$response_data
             ), 'Status code not valid.');
         }
         if (isset($response_data['error'])) {
-            $this->logger->error("Error in b2b api: {$client->getBody()}");
+            $this->logger->error("Error in b2b api: {$r->getBody()}");
             $error_code = isset($response_data['error']['code']) ? $response_data['error']['code'] : 'unknown';
             throw new Exception\ServiceException('response_with_error', array(
                 'error_code'=>$error_code,

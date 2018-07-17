@@ -8,7 +8,11 @@ class Result implements \Swiftgift\Gift\Api\Data\ResultInterface {
     protected $paymentMethods;
     protected $totals;
 
-    public function setSuccess(bool $value) {
+    /**
+     @param bool $value
+     @return $this
+     */
+    public function setSuccess($value) {
         $this->success = $value;
     }
 

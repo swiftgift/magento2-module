@@ -40,9 +40,6 @@ define([
     
     return Shipping.extend({
         registry: uiRegistry,
-        defaults: {
-            template: 'Swiftgift_Gift/custom/shipping'
-        },
         swiftGiftActive: ko.observable(),
         initialize: function() {
             this._super();
@@ -97,7 +94,7 @@ define([
                 this.source.trigger('swiftgiftForm.data.validate');
                 var isInvalid = this.source.get('params.invalid');
                 if (isInvalid) {
-                    this.focusInvalid();
+                    $('.swiftgift-shipping-var .field._error:first').find('input,select,textarea').focus();
                 }
                 return !isInvalid;
             } else {

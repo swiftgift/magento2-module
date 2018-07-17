@@ -2,12 +2,12 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <columns name="sales_order_columns">
         <column name="swift_gift_info" class="Swiftgift\Gift\Adminhtml\OrderGrid\SwiftGiftInfo">
-            <settings>
-                <filter>text</filter>
-                <dataType>text</dataType>
-                <label>SwiftGift</label>
-                <sorting>desc</sorting>
-            </settings>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Swift Gift</item>
+                </item>
+            </argument>
         </column>
     </columns>
 </listing>

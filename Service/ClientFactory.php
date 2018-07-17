@@ -12,7 +12,11 @@ class ClientFactory {
     }
 
     public function create() {
-        return $this->objectManager->create('\Swiftgift\Gift\Service\Client');
+        return $this->objectManager->create(\Swiftgift\Gift\Service\Client::class, [
+            'http_client_factory'=>$this->objectManager->create(\Magento\Framework\HTTP\ClientFactory::class, [
+                'instanceName'=>\Magento\Framework\HTTP\ZendClient::class
+            ])
+        ]);
     }
     
 }

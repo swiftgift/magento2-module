@@ -6,6 +6,7 @@
 @media all and (min-width: 768px), print {
     .product-info-main .product-add-form .actions .swiftgift-product-button {
         width: 49%;
+        display: block;
     }
 }
 
@@ -236,4 +237,9 @@
 .swiftgift-checkbox:checked + .swiftgift-checkbox-label .swiftgift-radio .swiftgift-radio-body {
     opacity: 1;
     max-height: 300px;
+}
+
+
+.swiftgift-shipping-var {
+    max-width: 500px;
 }

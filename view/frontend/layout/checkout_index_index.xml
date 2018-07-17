@@ -14,95 +14,109 @@
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <item name="component" xsi:type="string">Swiftgift_Gift/js/custom/shipping</item>
                                                     <item name="children" xsi:type="array">
-                                                        <item name="swiftgiftFormFieldset" xsi:type="array">
-                                                            <item name="component" xsi:type="string">uiComponent</item>
-                                                            <item name="displayArea" xsi:type="string">swiftgiftFormFieldSet</item>
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Swiftgift_Gift/js/custom/shipping-address-fieldset</item>
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="template" xsi:type="string">Swiftgift_Gift/custom/shipping-address-fieldset</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="before-form" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Swiftgift_Gift/js/swiftgift-shipping-var</item>
+                                                            <item name="displayArea" xsi:type="string">before-form</item>
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="template" xsi:type="string">Swiftgift_Gift/swiftgift-shipping-var</item>
+                                                            </item>
                                                             <item name="children" xsi:type="array">
-                                                                <item name="name" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
-                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
-                                                                        <item name="template" xsi:type="string">ui/form/field</item>
-                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
-                                                                    </item>
-                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                                    <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_name</item>
-                                                                    <item name="label" xsi:type="string">Name</item>
-                                                                    <item name="sortOrder" xsi:type="string">1</item>
-                                                                    <item name="validation" xsi:type="array">
-                                                                    </item>
-                                                                </item>
+                                                                <item name="swiftgiftFormFieldset" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                                    <item name="displayArea" xsi:type="string">swiftgiftFormFieldSet</item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <item name="name" xsi:type="array">
+                                                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
+                                                                                <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                            </item>
+                                                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                            <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_name</item>
+                                                                            <item name="label" xsi:type="string">Name</item>
+                                                                            <item name="sortOrder" xsi:type="string">1</item>
+                                                                            <item name="validation" xsi:type="array">
+                                                                            </item>
+                                                                        </item>
 
-                                                                <item name="country_id" xsi:type="array">
-                                                                    <item name="deps" xsi:type="array">
-                                                                        <item name="0" xsi:type="string">checkoutProvider</item>
-                                                                    </item>
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
-                                                                        <item name="template" xsi:type="string">ui/form/field</item>
-                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
-                                                                    </item>
-                                                                    <item name="dataScope" xsi:type="string">shippingAddress.country_id</item>
-                                                                    <item name="label" xsi:type="string">Country</item>
-                                                                    <item name="sortOrder" xsi:type="string">2</item>
-                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                                    <item name="validation" xsi:type="array">
-                                                                        <item name="required-entry" xsi:type="string">true</item>
-                                                                    </item>
-                                                                    <item name="imports" xsi:type="array">
-                                                                        <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.country_id</item>
-                                                                        <item name="setOptions" xsi:type="string">index = checkoutProvider:dictionaries.country_id</item>
-                                                                    </item>
-                                                                    <item name="value" xsi:type="string">US</item>
-                                                                </item>  
-                                                                <item name="region" xsi:type="array">
-                                                                    <item name="visible" xsi:type="boolean">false</item>
-                                                                </item>
-                                                                <item name="region_id" xsi:type="array">
-                                                                    <item name="deps" xsi:type="array">
-                                                                        <item name="0" xsi:type="string">checkoutProvider</item>
-                                                                    </item>
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/region</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
-                                                                        <item name="template" xsi:type="string">ui/form/field</item>
-                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
-                                                                        <item name="customEntry" xsi:type="string">swiftgift.region</item>
-                                                                    </item>
-                                                                    <item name="validation" xsi:type="array">
-                                                                        <item name="required-entry" xsi:type="boolean">true</item>
-                                                                    </item>
-                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                                    <item name="label" xsi:type="string">State/Province</item>
-                                                                    <item name="sortOrder" xsi:type="string">3</item>
-                                                                    <item name="dataScope" xsi:type="string">shippingAddress.region_id</item>
-                                                                    <item name="imports" xsi:type="array">
-                                                                        <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>
-                                                                        <item name="setOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>
-                                                                    </item>                                                
-                                                                    <item name="filterBy" xsi:type="array">
-                                                                        <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>
-                                                                        <item name="field" xsi:type="string">country_id</item>
-                                                                    </item>
-                                                                </item>                                                                
+                                                                        <item name="country_id" xsi:type="array">
+                                                                            <item name="deps" xsi:type="array">
+                                                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                                                            </item>
+                                                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                                            </item>
+                                                                            <item name="dataScope" xsi:type="string">shippingAddress.country_id</item>
+                                                                            <item name="label" xsi:type="string">Country</item>
+                                                                            <item name="sortOrder" xsi:type="string">2</item>
+                                                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                            <item name="validation" xsi:type="array">
+                                                                                <item name="required-entry" xsi:type="string">true</item>
+                                                                            </item>
+                                                                            <item name="imports" xsi:type="array">
+                                                                                <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.country_id</item>
+                                                                                <item name="setOptions" xsi:type="string">index = checkoutProvider:dictionaries.country_id</item>
+                                                                            </item>
+                                                                            <item name="value" xsi:type="string">US</item>
+                                                                        </item>  
+                                                                        <item name="region" xsi:type="array">
+                                                                            <item name="visible" xsi:type="boolean">false</item>
+                                                                        </item>
+                                                                        <item name="region_id" xsi:type="array">
+                                                                            <item name="deps" xsi:type="array">
+                                                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                                                            </item>
+                                                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/region</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                                                <item name="customEntry" xsi:type="string">swiftgift.region</item>
+                                                                            </item>
+                                                                            <item name="validation" xsi:type="array">
+                                                                                <item name="required-entry" xsi:type="boolean">true</item>
+                                                                            </item>
+                                                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                            <item name="label" xsi:type="string">State/Province</item>
+                                                                            <item name="sortOrder" xsi:type="string">3</item>
+                                                                            <item name="dataScope" xsi:type="string">shippingAddress.region_id</item>
+                                                                            <item name="imports" xsi:type="array">
+                                                                                <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>                               
+                                                                            </item>
+                                                                            <item name="filterBy" xsi:type="array">
+                                                                                <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>
+                                                                                <item name="field" xsi:type="string">country_id</item>
+                                                                            </item>
+                                                                        </item>                     
 
-                                                                <item name="message" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
-                                                                        <item name="customScope" xsi:type="string">swiftgiftForm</item>
-                                                                        <item name="template" xsi:type="string">ui/form/field</item>
-                                                                    </item>
-                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                                    <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_message</item>
-                                                                    <item name="label" xsi:type="string">Message</item>
-                                                                    <item name="sortOrder" xsi:type="string">4</item>
-                                                                    <item name="validation" xsi:type="array">
-                                                                    </item>
-                                                                </item>                                                                
-                                                                
+                                                                        <item name="message" xsi:type="array">
+                                                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
+                                                                                <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                                            </item>
+                                                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                            <item name="dataScope" xsi:type="string">shippingAddress.swift_gift_message</item>
+                                                                            <item name="label" xsi:type="string">Message</item>
+                                                                            <item name="sortOrder" xsi:type="string">4</item>
+                                                                            <item name="validation" xsi:type="array">
+                                                                            </item>
+                                                                        </item>                                                                
+                                                                        
+                                                                    </item>                                                                        
+                                                                </item>                                                                                                                                                                                                                
                                                             </item>
                                                         </item>
                                                     </item>
