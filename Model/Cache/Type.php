@@ -1,7 +1,7 @@
 <?php
 namespace Swiftgift\Gift\Model\Cache;
 
-class Type extends \Magento\Framework\Cache\Frontend\Decorator\Bare {
+class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope {
 
   const TYPE_IDENTIFIER = 'swiftgift_access_token';
   const CACHE_TAG = 'SWIFTGIFT_ACCESS_TOKEN';

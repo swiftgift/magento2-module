@@ -49,16 +49,27 @@ define([
                 quote.billingAddress(null);
             }
             var self = this;
+            var fix_fieldsets = ['checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset', 'checkout.steps.shipping-step.shippingAddress.before-form.swiftgiftFormFieldset'];
+            var fix_fields = ['country_id', 'region_id'];
             this.swiftGiftActive.subscribe(function(val) {
                 self._refreshBySwiftGift(val);
                 self.source.set('shippingAddress.swift_gift_active', val);
+                _.each(fix_fieldsets, function(fieldset_name) {
+                    _.each(fix_fields, function(field_name) {
+                        uiRegistry.get(fieldset_name + '.' + field_name, function(c) {
+                            if (c) {
+                                c.error(false);
+                            }
+                        });
+                    });
+                });
             });
             var swift_gift_active = (uiRegistry.get('localStorage').get(swift_gift_used_init_value_key) === true);
             uiRegistry.get('localStorage').remove(swift_gift_used_init_value_key);
             swift_gift_active = swift_gift_active || this.source.get('shippingAddress.swift_gift_active') === true;
             
             this.swiftGiftActive(swift_gift_active);
-            quote.swiftGiftUsed(swift_gift_active);
+            quote.swiftGiftUsed(swift_gift_active);            
             return this;
         },
         _refreshBySwiftGift: function(val) {

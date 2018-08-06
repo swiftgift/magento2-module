@@ -18,7 +18,7 @@ class Data {
         if ($v->isValid($sg_form_data)) {
             $data = array();
             $data = array(
-                'idempotency_key'=>"{$options['key_prefix']}{$order->getId()}",
+                'idempotency_key'=>$order->getProtectCode(),
                 'sender'=>array(
                     'name'=>$sg_form_data['name'],
                     'image_url'=>$options['image_url'],

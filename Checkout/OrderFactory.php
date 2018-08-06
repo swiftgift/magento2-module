@@ -23,13 +23,8 @@ class OrderFactory {
 
     public function create() {
         $base_url = $this->storeManager->getStore()->getBaseUrl();
-        $id_key_prefix = $this->deploymentConfig->get('swiftgift/id_key_prefix');
-        if (!$id_key_prefix) {
-            $id_key_prefix = md5($base_url);
-        }
         return $this->objectManager->create(\Swiftgift\Gift\Checkout\Order::class, [
-            'base_url'=>$base_url,
-            'key_prefix'=>$id_key_prefix
+            'base_url'=>$base_url
         ]);
     }
 

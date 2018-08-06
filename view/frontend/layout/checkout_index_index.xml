@@ -72,6 +72,10 @@
                                                                         </item>  
                                                                         <item name="region" xsi:type="array">
                                                                             <item name="visible" xsi:type="boolean">false</item>
+                                                                            <item name="dataScope" xsi:type="string">shippingAddress.region</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <item name="customScope" xsi:type="string">swiftgiftForm</item>
+                                                                            </item>
                                                                         </item>
                                                                         <item name="region_id" xsi:type="array">
                                                                             <item name="deps" xsi:type="array">
@@ -92,7 +96,8 @@
                                                                             <item name="sortOrder" xsi:type="string">3</item>
                                                                             <item name="dataScope" xsi:type="string">shippingAddress.region_id</item>
                                                                             <item name="imports" xsi:type="array">
-                                                                                <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>                               
+                                                                                <item name="initialOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>
+                                                                                <item name="setOptions" xsi:type="string">index = checkoutProvider:dictionaries.region_id</item>
                                                                             </item>
                                                                             <item name="filterBy" xsi:type="array">
                                                                                 <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>

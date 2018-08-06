@@ -10,12 +10,15 @@
             <resource>Swiftgift_Gift::config</resource>
             <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Main</label>
-                <field id="client_secret" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Secret Key</label>
-                    <comment>To activate SwiftGift for this store, you need to register an account at b2b.swiftgift.me/registration and receive a Secret Key.</comment>
-                </field>
                 <field id="api_base_url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>API base URL</label>
+                    <validate>validate-no-empty</validate>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Secret Key</label>
+                    <backend_model>Swiftgift\Gift\Model\Config\Clientsecret</backend_model>
+                    <validate>validate-no-empty</validate>
+                    <comment>To activate SwiftGift for this store, you need to register an account at b2b.swiftgift.me/registration and receive a Secret Key.</comment>
                 </field>
             </group>
         </section>

@@ -1,11 +1,9 @@
 define([
     'ko',
-    'Magento_Checkout/js/model/quote',
-    'Magento_Checkout/js/checkout-data'
+    'Magento_Checkout/js/model/quote'
 ], function(
     ko,
-    quote,
-    checkoutData
+    quote
 ) {
 
     function wrap(ctx, origin_func, func) {
@@ -29,13 +27,11 @@ define([
                     return origin_func();
                 }
             });
-            quote.swiftGiftUsed.subscribe(function(val) {
-                obj.canUseShippingAddress(!val && getCanUseShippingAddr(quote));
-            });
-            obj.canUseShippingAddress(!quote.swiftGiftUsed() && getCanUseShippingAddr(quote));
             return this;
         },
-        canUseShippingAddress: ko.observable(false)
+        canUseShippingAddress: ko.computed(function() {
+            return !quote.swiftGiftUsed() && getCanUseShippingAddr(quote);
+        })
     };
     return function(target) {
         if (window.SWIFT_GIFT_SHOW === true) {

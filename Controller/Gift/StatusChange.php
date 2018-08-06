@@ -22,17 +22,17 @@ class StatusChange extends Action {
     }
 
     public function execute() {
-        $gift_status_change_handler = $this->giftStatusChangeHandlerFactory->create();
         $gift_id = $this->getRequest()->getParam('gift_id');
         $code = $this->getRequest()->getParam('code');
         $data = json_decode($this->getRequest()->getContent(), TRUE);
-        $this->logger->addInfo(json_encode(
+        $this->logger->info("Swiftgift: status change: " . json_encode(
             [
                 'gift_id'=>$gift_id,
                 'code'=>$code,
                 'data'=>$data
             ]
         ));
+        $gift_status_change_handler = $this->giftStatusChangeHandlerFactory->create();        
         $result = [
             'status'=>200,
             'data'=>[

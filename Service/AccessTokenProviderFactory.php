@@ -16,18 +16,26 @@ class AccessTokenProviderFactory {
         $this->config = $config;
     }
 
-    public function create() {
+    public function create($base_url=null, $client_secret=null) {
+        if ($base_url === null) {
+            $base_url = $this->config->getValue('swiftgift/main/api_base_url');
+        }
+        if ($client_secret === null) {
+            $client_secret = $this->config->getValue('swiftgift/main/client_secret');
+        }
+        $url = $this->utils->joinWithTrim([
+            $base_url,
+            '/v1/auth'
+        ]);
+        $credentials = array(
+            'client_secret'=>$client_secret
+        );
         return $this->object_manager->create(
             '\Swiftgift\Gift\Service\AccessTokenProvider',
-            [
-                'url'=>$this->utils->joinWithTrim([
-                    $this->config->getValue('swiftgift/main/api_base_url'),
-                    '/v1/auth'
-                ]),
-                'credentials'=>[
-                    'client_secret'=>$this->config->getValue('swiftgift/main/client_secret')
-                ],
-            ]
+            array(
+                'url'=>$url,
+                'credentials'=>$credentials,
+            )
         );
     }
     
