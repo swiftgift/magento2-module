@@ -32,8 +32,8 @@ class Data {
                     "country"=> $order->getShippingAddress()->getCountryId(),
                     "state"=> $order->getShippingAddress()->getRegionCode(),
                     "name"=> $order->getShippingDescription(),
-                    "min_time"=> 1,
-                    "max_time"=> 2
+                    "min_time"=> null,
+                    "max_time"=> null
                 )
             );
             $data = array_merge($data, $this->createGiftBasketData($order, $options));
