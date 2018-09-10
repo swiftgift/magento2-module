@@ -47,7 +47,7 @@ class Data {
 
     protected function createGiftBasketData($order, $options) {
         return array(
-            'products'=>array_map(function($item) use ($options) {return array('name'=>$item->getName(), 'image_url'=>$item->getProduct()->getMediaConfig()->getMediaUrl($item->getProduct()->getImage()));}, $order->getAllItems()),
+            'products'=>array_map(function($item) use ($options) {return array('name'=>$item->getName(), 'image_url'=>$item->getProduct()->getMediaConfig()->getMediaUrl($item->getProduct()->getImage()));}, $order->getAllVisibleItems()),
             'basket_amount'=>$order->getGrandTotal(),
             'currency'=>$order->getGlobalCurrencyCode(),
         );
