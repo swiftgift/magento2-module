@@ -31,7 +31,7 @@ class Data {
                 'delivery'=>array(
                     "country"=> $order->getShippingAddress()->getCountryId(),
                     "state"=> $order->getShippingAddress()->getRegionCode(),
-                    "name"=> $order->getShippingMethod(),
+                    "name"=> $order->getShippingDescription(),
                     "min_time"=> 1,
                     "max_time"=> 2
                 )
