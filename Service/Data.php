@@ -22,7 +22,6 @@ class Data {
                 'sender'=>array(
                     'name'=>$sg_form_data['name'],
                     'image_url'=>$options['image_url'],
-                    'country'=>$sg_form_data['country_code'],
                     'billing'=>$this->createGiftBillingData($order),
                 ),
                 'message'=>array(
@@ -30,9 +29,9 @@ class Data {
                     'image_url'=>$options['image_url']
                 ),
                 'delivery'=>array(
-                    "country"=> $sg_form_data['country_code'],
-                    "state"=> null,
-                    "name"=> "DHL Standard Delivery",
+                    "country"=> $order->getShippingAddress()->getCountryId(),
+                    "state"=> $order->getShippingAddress()->getRegionCode(),
+                    "name"=> $order->getShippingMethod(),
                     "min_time"=> 1,
                     "max_time"=> 2
                 )
