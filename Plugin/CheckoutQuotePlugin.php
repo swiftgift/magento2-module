@@ -22,7 +22,7 @@ class CheckoutQuotePlugin {
 
     public function aroundSaveAddressInformation($originObject, $methodClosure, $cart_id, $address_information) {
         $result = $methodClosure($cart_id, $address_information);
-        if ($this->helper->isCanUse()) {            
+        if ($this->helper->isCanUse()) {
             $quote_id_mask = $this->quote_id_mask_factory->create()->load($cart_id, 'masked_id');
             $quote = $this->quote_repository->get($quote_id_mask->getQuoteId());
             $sg_checkout_quote = $this->sg_checkout_quote_factory->create();
