@@ -5,7 +5,7 @@ define([
 ], function(ko, uiComponent, uiRegistry) {
 
     if (window.SWIFT_GIFT_SHOW !== true) {
-        return Shipping;
+        return uiComponent;
     };
     
     return uiComponent.extend({
