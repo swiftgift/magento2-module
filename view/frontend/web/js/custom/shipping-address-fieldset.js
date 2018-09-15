@@ -3,6 +3,11 @@ define([
     'uiComponent',
     'uiRegistry'
 ], function(ko, uiComponent, uiRegistry) {
+
+    if (window.SWIFT_GIFT_SHOW !== true) {
+        return uiComponent;
+    };    
+    
     return uiComponent.extend({
         registry: uiRegistry,
         swiftGiftActive: ko.observable(false),
