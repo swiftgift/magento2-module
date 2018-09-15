@@ -33,16 +33,15 @@ define([
 ) {
     
     var swift_gift_used_init_value_key = 'swift_gift_used_init_value';
-
-    if (window.SWIFT_GIFT_SHOW !== true) {
-        return Shipping;
-    };
     
     return Shipping.extend({
         registry: uiRegistry,
         swiftGiftActive: ko.observable(),
         initialize: function() {
             this._super();
+            if (window.SWIFT_GIFT_SHOW !== true) {
+                return;
+            };   
             var shipping_addr = checkoutData.getShippingAddressFromData();
             if (shipping_addr && shipping_addr.swift_gift_active === true && quote.shippingAddress()) {
                 quote.shippingAddress().canUseForBilling(false);
