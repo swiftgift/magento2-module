@@ -4,6 +4,7 @@ define([
     'uiRegistry',
 ], function(ko, uiComponent, uiRegistry) {    
     return uiComponent.extend({
+        swiftGiftShow: window.SWIFT_GIFT_SHOW,
         registry: uiRegistry,
         swiftGiftActive: ko.observable(false),
         initialize: function() {

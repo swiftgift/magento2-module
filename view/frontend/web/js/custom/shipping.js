@@ -41,7 +41,7 @@ define([
             this._super();
             if (window.SWIFT_GIFT_SHOW !== true) {
                 return;
-            };   
+            };
             var shipping_addr = checkoutData.getShippingAddressFromData();
             if (shipping_addr && shipping_addr.swift_gift_active === true && quote.shippingAddress()) {
                 quote.shippingAddress().canUseForBilling(false);
